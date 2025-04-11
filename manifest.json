@@ -1,7 +1,7 @@
 {
   "name": "Coxplo Website",
   "short_name": "Coxplo",
-  "start_url": "/coxplo-pwa/",
+  "start_url": "/couple-pwa/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
