@@ -1,13 +1,13 @@
 const CACHE_NAME = 'coxplo-cache-v1';
 const urlsToCache = [
-  '/coxplo-pwa-ultimate-with-license/',
-  '/coxplo-pwa-ultimate-with-license/index.html',
-  '/coxplo-pwa-ultimate-with-license/assets/css/style.css',
-  '/coxplo-pwa-ultimate-with-license/assets/css/responsive.css',
-  '/coxplo-pwa-ultimate-with-license/assets/js/custom.js',
-  '/coxplo-pwa-ultimate-with-license/assets/img/logo-192x192.png',
-  '/coxplo-pwa-ultimate-with-license/assets/img/heading-img-2.ico',
-  // Add other assets you want to cache
+  '/coxplo-pwa/',
+  '/coxplo-pwa/index.html',
+  '/coxplo-pwa/assets/css/style.css',
+  '/coxplo-pwa/assets/css/responsive.css',
+  '/coxplo-pwa/assets/js/custom.js',
+  '/coxplo-pwa/assets/img/logo-192x192.png',
+  '/coxplo-pwa/assets/img/heading-img-2.ico'
+  // Ensure all these files exist in the specified paths
 ];
 
 self.addEventListener('install', (event) => {
@@ -15,7 +15,7 @@ self.addEventListener('install', (event) => {
     caches.open(CACHE_NAME).then((cache) => {
       console.log('Opened cache');
       return cache.addAll(urlsToCache);
-    })
+    }).catch(err => console.error('Failed to cache files:', err))
   );
 });
 
@@ -23,7 +23,7 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
       return response || fetch(event.request);
-    })
+    }).catch(err => console.error('Fetch failed:', err))
   );
 });
 
@@ -38,6 +38,6 @@ self.addEventListener('activate', (event) => {
           }
         })
       );
-    })
+    }).catch(err => console.error('Activation failed:', err))
   );
 });
