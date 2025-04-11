@@ -9,7 +9,7 @@
   <link rel="apple-touch-icon" href="/assets/img/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#000000">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -227,13 +227,12 @@
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/service-worker.js')
+      navigator.serviceWorker.register('/service-worker.js')-with-license/service-worker.js')
         .then(reg => console.log('Service Worker registered:', reg))
         .catch(err => console.error('Service Worker registration failed:', err));
     });
   }
 </script>
-<!-- Add this script to prompt users to install the PWA -->
 <script>
   let deferredPrompt;
   const installButton = document.createElement('button');
@@ -246,6 +245,7 @@
   document.body.appendChild(installButton);
 
   window.addEventListener('beforeinstallprompt', (e) => {
+    console.log('beforeinstallprompt event fired');
     e.preventDefault();
     deferredPrompt = e;
     installButton.style.display = 'block'; // Show the button when the event is triggered

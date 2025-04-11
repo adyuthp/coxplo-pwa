@@ -1,12 +1,12 @@
 const CACHE_NAME = 'coxplo-cache-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/assets/css/style.css',
-  '/assets/css/responsive.css',
-  '/assets/js/custom.js',
-  '/assets/img/logo.png',
-  '/assets/img/heading-img-2.ico',
+  '/coxplo-pwa-ultimate-with-license/',
+  '/coxplo-pwa-ultimate-with-license/index.html',
+  '/coxplo-pwa-ultimate-with-license/assets/css/style.css',
+  '/coxplo-pwa-ultimate-with-license/assets/css/responsive.css',
+  '/coxplo-pwa-ultimate-with-license/assets/js/custom.js',
+  '/coxplo-pwa-ultimate-with-license/assets/img/logo-192x192.png',
+  '/coxplo-pwa-ultimate-with-license/assets/img/heading-img-2.ico',
   // Add other assets you want to cache
 ];
 
